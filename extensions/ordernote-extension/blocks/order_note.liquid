@@ -1,0 +1,10 @@
+<div id="ordernote-wrapper" data-shop="{{ shop.permanent_domain }}"></div>
+{{ 'order-note.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Order Note Prompt",
+  "target": "section",
+  "settings": []
+}
+{% endschema %}

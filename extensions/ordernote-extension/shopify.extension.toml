@@ -1,0 +1,7 @@
+api_version = "2024-01"
+uid = "2cb1a3c0-5ce5-5d6e-7a78-3e15a59847398ec5a4e2"
+
+[[extensions]]
+name = "ordernote-extension"
+handle = "ordernote-extension"
+type = "theme"

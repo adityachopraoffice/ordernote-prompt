@@ -1,0 +1,16 @@
+name = "ordernote-prompt"
+client_id = "your_api_key"
+application_url = "your_vercel_url"
+embedded = true
+
+[access_scopes]
+scopes = "read_products"
+
+[auth]
+redirect_urls = ["your_vercel_url/auth/callback"]
+
+[webhooks]
+api_version = "2024-01"
+
+[extensions.theme]
+handle = "ordernote-extension"
