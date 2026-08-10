@@ -2,15 +2,19 @@
 
 name = "ordernote-prompt"
 client_id = "f10d792eb3503c22404125658dcafbc2"
-application_url = "https://shopify.dev/apps/default-app-home"
+application_url = "https://ordernote-prompt.vercel.app"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = ""
+scopes = "read_products"
 
 [auth]
-redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
+redirect_urls = [
+  "https://ordernote-prompt.vercel.app/auth/callback",
+  "https://ordernote-prompt.vercel.app/auth/shopify/callback",
+  "https://ordernote-prompt.vercel.app/api/auth/callback"
+]
 
 [webhooks]
 api_version = "2026-10"
