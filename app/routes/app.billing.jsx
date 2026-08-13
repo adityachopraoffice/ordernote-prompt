@@ -69,7 +69,7 @@ export const action = async ({ request }) => {
   }
 
   const url = new URL(request.url);
-  const returnUrl = `${url.protocol}//${url.host}/app/billing`;
+  const returnUrl = `${url.protocol}//${url.host}/app/billing?shop=${session.shop}`;
 
   // Otherwise, request the new plan
   await billing.request({
