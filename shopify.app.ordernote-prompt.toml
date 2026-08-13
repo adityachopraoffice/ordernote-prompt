@@ -22,6 +22,10 @@ api_version = "2026-10"
 [extensions.theme]
 handle = "ordernote-extension"
 
+[app_proxy]
+url = "https://ordernote-prompt.vercel.app"
+subpath = "ordernote-prompt"
+prefix = "apps"
+
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = true

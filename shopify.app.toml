@@ -14,3 +14,8 @@ api_version = "2024-01"
 
 [extensions.theme]
 handle = "ordernote-extension"
+
+[app_proxy]
+url = "your_vercel_url"
+subpath = "ordernote-prompt"
+prefix = "apps"
