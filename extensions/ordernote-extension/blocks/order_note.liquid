@@ -1,5 +1,5 @@
 <div id="ordernote-wrapper" data-shop="{{ shop.permanent_domain }}"></div>
-{{ 'order-note.js' | asset_url | script_tag }}
+<script src="{{ 'order-note.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
