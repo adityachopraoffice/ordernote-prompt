@@ -9,7 +9,9 @@ const initOrderNote = async () => {
   const shop = wrapper.getAttribute("data-shop");
   if (!shop) return;
 
-  const apiUrl = `/apps/ordernote-prompt/api/settings?shop=${shop}`;
+  // We are bypassing the App Proxy and fetching directly from the backend
+  // because the App Proxy seems to be failing or unconfigured on the live store.
+  const apiUrl = `https://ordernote-prompt.vercel.app/api/settings?shop=${shop}`;
 
   try {
     const response = await fetch(apiUrl);
