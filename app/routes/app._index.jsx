@@ -169,6 +169,22 @@ export default function Index() {
       <Layout>
         <Layout.Section>
           <BlockStack gap="500">
+            {/* Instructions Section */}
+            <Card roundedAbove="sm">
+              <BlockStack gap="400">
+                <Text variant="headingMd" as="h2">How it works & Testing Guide</Text>
+                <Text as="p">
+                  <b>1. Enable in Theme:</b> Go to your Shopify Theme Editor, navigate to the Cart page, and add the "Order Note Prompt" block.
+                </Text>
+                <Text as="p">
+                  <b>2. Test it:</b> Add an item to your cart on the storefront, type a message in the new order note box, and complete checkout.
+                </Text>
+                <Text as="p">
+                  <b>3. View the Note:</b> Go to your Shopify Admin &rarr; <b>Orders</b>. Click on the new order, and you will see the message right there on the right side under the standard <b>Notes</b> section!
+                </Text>
+              </BlockStack>
+            </Card>
+
             {/* Form Text Section */}
             <Card>
               <BlockStack gap="400">
