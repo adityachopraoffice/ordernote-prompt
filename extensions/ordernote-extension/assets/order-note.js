@@ -1,16 +1,14 @@
-document.addEventListener("DOMContentLoaded", async () => {
+const initOrderNote = async () => {
   const wrapper = document.getElementById("ordernote-wrapper");
   if (!wrapper) return;
+  
+  // Prevent double rendering if script runs multiple times
+  if (wrapper.dataset.initialized === "true") return;
+  wrapper.dataset.initialized = "true";
 
   const shop = wrapper.getAttribute("data-shop");
   if (!shop) return;
 
-  // We fetch settings directly from the app's public API endpoint.
-  // In a real production app, this would use an app proxy (/apps/...).
-  // Here we assume the app is hosted on the same domain or allows CORS.
-  // We'll use the current window origin + /api/settings as a fallback for testing, 
-  // but ideally we'd inject the host url or use app proxy.
-  // For the purpose of this exact prompt, we'll assume /apps/ordernote-prompt is mapped via app proxy.
   const apiUrl = `/apps/ordernote-prompt/api/settings?shop=${shop}`;
 
   try {
@@ -86,15 +84,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     textarea.style.fontFamily = "inherit";
     textarea.style.resize = "vertical";
     textarea.style.outline = "none";
-    // To distinguish the textarea's own border if the template has none, 
-    // we'll rely on the wrapper's border and keep textarea borderless.
 
     noteWrapper.appendChild(title);
     noteWrapper.appendChild(textarea);
 
     const cartForm = document.querySelector('form[action="/cart"]');
     if (cartForm) {
-      // Find the submit button or checkout button
       const submitBtn = cartForm.querySelector('[type="submit"], [name="checkout"]');
       if (submitBtn) {
         submitBtn.parentNode.insertBefore(noteWrapper, submitBtn);
@@ -108,4 +103,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("OrderNote Prompt error:", error);
   }
-});
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initOrderNote);
+} else {
+  initOrderNote();
+}
