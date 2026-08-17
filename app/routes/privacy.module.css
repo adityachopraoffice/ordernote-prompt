@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+.container {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  color: #f8fafc;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lastUpdated {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.text {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.list {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.link {
+  color: #818cf8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #c084fc;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #818cf8;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  color: #c084fc;
+  transform: translateX(-5px);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+  .content {
+    padding: 2rem;
+  }
+  .heading {
+    font-size: 2.25rem;
+  }
+}
