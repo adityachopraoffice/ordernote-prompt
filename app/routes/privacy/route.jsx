@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import styles from "./privacy.module.css";
+import styles from "./styles.module.css";
 
 export const meta = () => {
   return [
