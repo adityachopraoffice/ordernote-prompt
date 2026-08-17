@@ -45,7 +45,7 @@ export const loader = async ({ request }) => {
 };
 
 export const action = async ({ request }) => {
-  const { billing } = await authenticate.admin(request);
+  const { billing, session } = await authenticate.admin(request);
   const formData = await request.formData();
   const plan = formData.get("plan");
 
