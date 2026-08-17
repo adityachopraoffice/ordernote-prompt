@@ -78,7 +78,7 @@ export default function Dashboard() {
             >
               <BlockStack gap="400">
                 <Text variant="headingXl" as="h1" fontWeight="bold">
-                  Welcome to OrderNote Prompt! ✨
+                  Welcome to OrderNote Prompt!
                 </Text>
                 <Text as="p" variant="bodyLg">
                   Get started by enabling the app in your theme and customizing your prompt text and colors.
@@ -95,7 +95,7 @@ export default function Dashboard() {
               {/* Quick Status */}
               <Card background="bg-surface-secondary">
                 <BlockStack gap="400">
-                  <Text variant="headingMd" as="h2">Account Status 📊</Text>
+                  <Text variant="headingMd" as="h2">Account Status</Text>
                   
                   <Box padding="400" background="bg-surface" borderRadius="200" borderColor="border" borderWidth="025">
                     <BlockStack gap="300">
@@ -121,7 +121,7 @@ export default function Dashboard() {
               {/* Instructions */}
               <Card>
                 <BlockStack gap="400">
-                  <Text variant="headingMd" as="h2">How it works & Testing 🚀</Text>
+                  <Text variant="headingMd" as="h2">How it works & Testing</Text>
                   <BlockStack gap="300">
                     <Box padding="300" background="bg-surface-secondary" borderRadius="200">
                       <Text as="p">
