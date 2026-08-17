@@ -68,8 +68,7 @@ export const action = async ({ request }) => {
     return redirect("/app/billing");
   }
 
-  const url = new URL(request.url);
-  const returnUrl = `${url.protocol}//${url.host}/app/billing?shop=${session.shop}`;
+  const returnUrl = `https://admin.shopify.com/store/${session.shop.replace('.myshopify.com', '')}/apps/${process.env.SHOPIFY_API_KEY}/app/billing`;
 
   // Otherwise, request the new plan
   await billing.request({
