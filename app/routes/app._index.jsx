@@ -8,8 +8,10 @@ import {
   Button,
   BlockStack,
   InlineGrid,
-  CalloutCard,
   Badge,
+  Box,
+  Divider,
+  InlineStack,
 } from "@shopify/polaris";
 import { authenticate } from "../shopify.server";
 import prisma from "../db.server";
@@ -65,29 +67,52 @@ export default function Dashboard() {
         <Layout.Section>
           <BlockStack gap="500">
             {/* Welcome Banner */}
-            <CalloutCard
-              title="Welcome to OrderNote Prompt!"
-              illustration="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10bf5b8cb4b3a4c0fb32688b1.svg"
-              primaryAction={{
-                content: "Customize Widget",
-                onAction: () => navigate("/app/settings"),
+            <div
+              style={{
+                background: "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
+                borderRadius: "12px",
+                padding: "32px",
+                color: "white",
+                boxShadow: "0 10px 25px -5px rgba(168, 85, 247, 0.4)",
               }}
             >
-              <p>
-                Get started by enabling the app in your theme and customizing your prompt text and colors.
-                Currently connected to: <strong>{shop}</strong>
-              </p>
-            </CalloutCard>
+              <BlockStack gap="400">
+                <Text variant="headingXl" as="h1" fontWeight="bold">
+                  Welcome to OrderNote Prompt! ✨
+                </Text>
+                <Text as="p" variant="bodyLg">
+                  Get started by enabling the app in your theme and customizing your prompt text and colors.
+                </Text>
+                <div style={{ marginTop: "16px" }}>
+                  <Button size="large" onClick={() => navigate("/app/settings")}>
+                    Customize Widget
+                  </Button>
+                </div>
+              </BlockStack>
+            </div>
 
             <InlineGrid columns={2} gap="400">
               {/* Quick Status */}
-              <Card>
+              <Card background="bg-surface-secondary">
                 <BlockStack gap="400">
-                  <Text variant="headingMd" as="h2">Account Status</Text>
-                  <Text as="p">
-                    Current Plan: <Badge tone="info">{currentPlan.toUpperCase()}</Badge>
-                  </Text>
-                  <Button onClick={() => navigate("/app/billing")}>
+                  <Text variant="headingMd" as="h2">Account Status 📊</Text>
+                  
+                  <Box padding="400" background="bg-surface" borderRadius="200" borderColor="border" borderWidth="025">
+                    <BlockStack gap="300">
+                      <Text as="p" color="subdued">Connected Store</Text>
+                      <Text variant="headingSm" as="p">{shop}</Text>
+                      
+                      <Divider />
+                      
+                      <InlineStack align="space-between" blockAlign="center">
+                        <Text as="p" color="subdued">Current Plan</Text>
+                        <Badge tone={currentPlan === 'pro' ? 'magic' : currentPlan === 'basic' ? 'info' : 'success'}>
+                          {currentPlan.toUpperCase()}
+                        </Badge>
+                      </InlineStack>
+                    </BlockStack>
+                  </Box>
+                  <Button variant="primary" onClick={() => navigate("/app/billing")}>
                     Manage Subscription
                   </Button>
                 </BlockStack>
@@ -96,16 +121,24 @@ export default function Dashboard() {
               {/* Instructions */}
               <Card>
                 <BlockStack gap="400">
-                  <Text variant="headingMd" as="h2">How it works & Testing</Text>
-                  <Text as="p">
-                    <b>1. Enable in Theme:</b> Go to your Shopify Theme Editor, navigate to the Cart page, and add the "Order Note Prompt" block.
-                  </Text>
-                  <Text as="p">
-                    <b>2. Test it:</b> Add an item to your cart on the storefront, type a message in the new order note box, and complete checkout.
-                  </Text>
-                  <Text as="p">
-                    <b>3. View the Note:</b> Go to your Shopify Admin &rarr; <b>Orders</b>. Click on the new order, and you will see the message right there on the right side under the standard <b>Notes</b> section!
-                  </Text>
+                  <Text variant="headingMd" as="h2">How it works & Testing 🚀</Text>
+                  <BlockStack gap="300">
+                    <Box padding="300" background="bg-surface-secondary" borderRadius="200">
+                      <Text as="p">
+                        <strong style={{ color: "#005bd3" }}>1. Enable in Theme:</strong> Go to your Shopify Theme Editor, navigate to the Cart page, and add the "Order Note Prompt" block.
+                      </Text>
+                    </Box>
+                    <Box padding="300" background="bg-surface-secondary" borderRadius="200">
+                      <Text as="p">
+                        <strong style={{ color: "#005bd3" }}>2. Test it:</strong> Add an item to your cart on the storefront, type a message in the new order note box, and complete checkout.
+                      </Text>
+                    </Box>
+                    <Box padding="300" background="bg-surface-secondary" borderRadius="200">
+                      <Text as="p">
+                        <strong style={{ color: "#005bd3" }}>3. View the Note:</strong> Go to your Shopify Admin &rarr; <b>Orders</b>. Click on the new order, and you will see the message under the standard <b>Notes</b> section!
+                      </Text>
+                    </Box>
+                  </BlockStack>
                 </BlockStack>
               </Card>
             </InlineGrid>
