@@ -78,9 +78,9 @@ export default function Dashboard() {
             >
               <BlockStack gap="400">
                 <Text variant="headingXl" as="h1" fontWeight="bold">
-                  Welcome to OrderNote Prompt!
+                  Welcome to Magic Notes!
                 </Text>
-                <Text as="p" variant="bodyLg">
+                <Text as="p" variant="bodyMd">
                   Get started by enabling the app in your theme and customizing your prompt text and colors.
                 </Text>
                 <div style={{ marginTop: "16px" }}>
@@ -124,8 +124,8 @@ export default function Dashboard() {
                   <Text variant="headingMd" as="h2">How it works & Testing</Text>
                   <BlockStack gap="300">
                     <Box padding="300" background="bg-surface-secondary" borderRadius="200">
-                      <Text as="p">
-                        <strong style={{ color: "#005bd3" }}>1. Enable in Theme:</strong> Go to your Shopify Theme Editor, navigate to the Cart page, and add the "Order Note Prompt" block.
+                      <Text as="span">
+                        <strong style={{ color: "#005bd3" }}>1. Enable in Theme:</strong> Go to your Shopify Theme Editor, navigate to the Cart page, and add the "Magic Notes" block.
                       </Text>
                     </Box>
                     <Box padding="300" background="bg-surface-secondary" borderRadius="200">

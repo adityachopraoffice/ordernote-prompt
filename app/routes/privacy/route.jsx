@@ -3,10 +3,10 @@ import styles from "./styles.module.css";
 
 export const meta = () => {
   return [
-    { title: "Privacy Policy | Ordernote Prompt" },
+    { title: "Privacy Policy | Magic Notes" },
     {
       name: "description",
-      content: "Privacy policy for Ordernote Prompt Shopify App.",
+      content: "Privacy policy for Magic Notes Shopify App.",
     },
   ];
 };
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>1. Introduction</h2>
           <p className={styles.text}>
-            Welcome to Ordernote Prompt. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you use our Shopify application and tell you about your privacy rights.
+            Welcome to Magic Notes. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you use our Shopify application and tell you about your privacy rights.
           </p>
         </section>
 
@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
             We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
           </p>
           <ul className={styles.list}>
-            <li>To provide the core functionality of the Ordernote Prompt app (syncing cart notes to Shopify orders).</li>
+            <li>To provide the core functionality of the Magic Notes app (syncing cart notes to Shopify orders).</li>
             <li>To manage our relationship with you, including notifying you about changes to our terms or privacy policy.</li>
             <li>To administer and protect our business and the application.</li>
           </ul>

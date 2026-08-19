@@ -103,7 +103,7 @@ const initOrderNote = async () => {
     }
 
   } catch (error) {
-    console.error("OrderNote Prompt error:", error);
+    console.error("Magic Notes error:", error);
   }
 };
 

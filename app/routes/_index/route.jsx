@@ -15,7 +15,7 @@ export const loader = async ({ request }) => {
 
 export const meta = () => {
   return [
-    { title: "Ordernote Prompt | Supercharge Your Shopify Cart Notes" },
+    { title: "Magic Notes | Supercharge Your Shopify Cart Notes" },
     {
       name: "description",
       content: "Empower your customers to leave detailed, AI-prompted order notes directly in their cart. Seamless Shopify integration.",
@@ -32,7 +32,7 @@ export default function App() {
       <div className={styles.glow2}></div>
       
       <header className={styles.hero}>
-        <div className={styles.badge}>Ordernote Prompt v2.0</div>
+        <div className={styles.badge}>Magic Notes v2.0</div>
         <h1 className={styles.heading}>Smarter Order Notes</h1>
         <p className={styles.text}>
           Empower your customers to leave detailed, guided instructions directly on the cart page. Reduce support tickets and deliver exactly what they want.
