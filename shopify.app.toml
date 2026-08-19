@@ -12,6 +12,11 @@ redirect_urls = ["your_vercel_url/auth/callback"]
 [webhooks]
 api_version = "2024-01"
 
+  [webhooks.privacy_compliance]
+  customer_deletion_url = "your_vercel_url/webhooks/customers/redact"
+  customer_data_request_url = "your_vercel_url/webhooks/customers/data_request"
+  shop_deletion_url = "your_vercel_url/webhooks/shop/redact"
+
 [extensions.theme]
 handle = "ordernote-extension"
 
