@@ -1,4 +1,4 @@
-name = "ordernote-prompt"
+name = "Magic Notes"
 client_id = "your_api_key"
 application_url = "your_vercel_url"
 embedded = true
