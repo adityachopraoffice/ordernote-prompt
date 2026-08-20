@@ -90,17 +90,35 @@ const initOrderNote = async () => {
     noteWrapper.appendChild(title);
     noteWrapper.appendChild(textarea);
 
-    const cartForm = document.querySelector('form[action="/cart"]');
-    if (cartForm) {
-      const submitBtn = cartForm.querySelector('[type="submit"], [name="checkout"]');
-      if (submitBtn) {
-        submitBtn.parentNode.insertBefore(noteWrapper, submitBtn);
-      } else {
-        cartForm.appendChild(noteWrapper);
+    // Place the widget EXACTLY where the merchant dropped it in the Theme Editor.
+    // Do not attempt to move it into the cart form, as this breaks layouts in themes like Dawn.
+    wrapper.appendChild(noteWrapper);
+
+    // Pre-fill the textarea with the existing cart note (if any)
+    try {
+      const cartUrl = window.Shopify?.routes?.root ? window.Shopify.routes.root + 'cart.js' : '/cart.js';
+      const cartRes = await fetch(cartUrl);
+      if (cartRes.ok) {
+        const cartData = await cartRes.json();
+        if (cartData.note) textarea.value = cartData.note;
       }
-    } else {
-      wrapper.appendChild(noteWrapper);
+    } catch (e) {
+      console.error("Magic Notes: Error fetching cart data", e);
     }
+
+    // Update the cart note using Shopify's AJAX API when the user types
+    let timeoutId;
+    textarea.addEventListener("input", (e) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const updateUrl = window.Shopify?.routes?.root ? window.Shopify.routes.root + 'cart/update.js' : '/cart/update.js';
+        fetch(updateUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ note: e.target.value })
+        }).catch(err => console.error("Magic Notes: Error updating cart note", err));
+      }, 500); // Debounce typing
+    });
 
   } catch (error) {
     console.error("Magic Notes error:", error);
