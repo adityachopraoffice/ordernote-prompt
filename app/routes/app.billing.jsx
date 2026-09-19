@@ -21,7 +21,7 @@ export const loader = async ({ request }) => {
 
   const billingCheck = await billing.check({
     plans: ["basic", "pro"],
-    isTest: true,
+    isTest: false,
   });
 
   let currentPlan = "free";
@@ -53,14 +53,14 @@ export const action = async ({ request }) => {
     // To switch to free, we cancel other subscriptions
     const billingCheck = await billing.check({
       plans: ["basic", "pro"],
-      isTest: true,
+      isTest: false,
     });
     
     if (billingCheck.hasActivePayment) {
       for (const sub of billingCheck.appSubscriptions) {
         await billing.cancel({
           subscriptionId: sub.id,
-          isTest: true,
+          isTest: false,
           prorate: true,
         });
       }
@@ -73,7 +73,7 @@ export const action = async ({ request }) => {
   // Otherwise, request the new plan
   await billing.request({
     plan: plan,
-    isTest: true,
+    isTest: false,
     returnUrl: returnUrl,
   });
 
@@ -104,7 +104,7 @@ export default function Billing() {
     {
       id: "basic",
       name: "Basic",
-      price: "$4.99/mo",
+      price: "$49/mo",
       features: [
         "All 4 templates",
         "Custom form text",
@@ -116,7 +116,7 @@ export default function Billing() {
     {
       id: "pro",
       name: "Pro",
-      price: "$9.99/mo",
+      price: "$109/mo",
       features: [
         "All 4 templates",
         "Custom form text",

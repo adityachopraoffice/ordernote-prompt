@@ -12,7 +12,7 @@ export const billingConfig = {
   "basic": {
     lineItems: [
       {
-        amount: 4.99,
+        amount: 49,
         currencyCode: "USD",
         interval: BillingInterval.Every30Days,
       },
@@ -21,7 +21,7 @@ export const billingConfig = {
   "pro": {
     lineItems: [
       {
-        amount: 9.99,
+        amount: 109,
         currencyCode: "USD",
         interval: BillingInterval.Every30Days,
       },
